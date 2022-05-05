@@ -25,7 +25,6 @@ RUN apt-get install -y ffmpeg
 # install x virtual framebuffer and xdotool for headless use
 
 RUN apt-get install -y xvfb xdotool
-RUN Xvfb :99 -ac -screen 0 1080x720x8 -nolisten tcp &
 
 # install the bot
 # create the directory
