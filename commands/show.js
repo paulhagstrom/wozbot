@@ -35,10 +35,10 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		*/
-		const file = new MessageAttachment('./demo.mp4');
+		const file = new MessageAttachment('./screen.mp4');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Camera noise')
-			.setImage('attachment://demo.mp4');
+			.setImage('attachment://screen.mp4');
 		await interaction.reply({
 			embeds: [replyEmbed],
 			files: [file]
