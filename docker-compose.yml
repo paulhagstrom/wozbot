@@ -1,0 +1,8 @@
+version: '3'
+services:
+  bot:
+    build: .
+    image: wozbot
+    container_name: wozbot
+    restart: always
+    
