@@ -1,6 +1,6 @@
 version: '3'
 services:
-  bot:
+  wozbot:
     build: .
     image: wozbot
     container_name: wozbot
