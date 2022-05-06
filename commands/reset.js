@@ -20,7 +20,7 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		// launch new one
-		exec('linapple -1 disks/uwgp.dsk &', (error, stdout, stderr) => {
+		exec('linapple -conf linapple.conf -1 disks/uwgp.dsk &', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 				return;
