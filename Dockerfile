@@ -23,8 +23,9 @@ RUN cp /usr/local/share/linapple/Master.dsk /root/.linapple/disks/
 RUN apt-get install -y ffmpeg
 
 # install x virtual framebuffer and xdotool for headless use
+# and also vnc and Fluxbox so we can watch or stream it in realtime
 
-RUN apt-get install -y xvfb xdotool
+RUN apt-get install -y xvfb xdotool x11vnc fluxbox
 
 # install the bot
 # create the directory
