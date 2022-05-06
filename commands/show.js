@@ -10,7 +10,7 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		// record 1 second
-		exec('ffmpeg -y -hide_banner -loglevel warning -draw_mouse 0 -f x11grab -r 30 -video_size 850x630 -i :1+100,70 -q:v 0 -pix_fmt yuv422p -t 1 screen.mp4', (error, stdout, stderr) => {
+		exec('ffmpeg -y -hide_banner -loglevel warning -draw_mouse 0 -f x11grab -r 30 -video_size 850x630 -i :20+100,70 -q:v 0 -pix_fmt yuv422p -t 1 screen.mp4', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 				return;
