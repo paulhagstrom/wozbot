@@ -5,8 +5,9 @@ services:
     image: wozbot
     container_name: wozbot
     restart: always
+    ports:
+      - "5900:5900" # VNC
     volumes:
       - ./config.json:/usr/src/bot/config.json
       - ./linapple.conf:/usr/src/bot/linapple.conf
       - ./startup.sh:/usr/src/bot/startup.sh
-
