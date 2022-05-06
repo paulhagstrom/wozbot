@@ -6,7 +6,7 @@ services:
     container_name: wozbot
     restart: always
     ports:
-      - "5900:5900" # VNC
+      - "15901:5900" # VNC host port is 15901.
     volumes:
       - ./config.json:/usr/src/bot/config.json
       - ./linapple.conf:/usr/src/bot/linapple.conf
