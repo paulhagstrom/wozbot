@@ -31,6 +31,6 @@ module.exports = {
 			}
 			console.log(`stdout: ${stdout}`);
 		});
-		await interaction.reply(`CHUNKA CHUNKA CHUNKA! {$pid}`);
+		await interaction.reply('CHUNKA CHUNKA CHUNKA!');
 	},
 };
