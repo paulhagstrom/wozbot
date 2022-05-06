@@ -41,4 +41,4 @@ COPY . /usr/src/bot
 
 # start the bot
 #CMD ["node", "index.js"]
-CMD ["startup.sh"]
+CMD ["bash", "startup.sh"]
