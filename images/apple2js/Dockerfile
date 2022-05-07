@@ -15,6 +15,9 @@ RUN mv apple2js-master emulator
 WORKDIR /usr/src/emulator
 RUN npm install
 
+# install http-server
+RUN npm install http-server
+
 # Build static deployment
 # SSL legacy environment variable also used to build on my macOS machine
 # note: to make it through the build I needed to add a swapfile to my machine
