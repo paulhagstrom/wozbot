@@ -19,7 +19,8 @@ module.exports = {
 		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		console.log(`show: retrieved browser endpoint: ${browserWSEndpoint}`);
 		const browser = await puppeteer.connect({ browserWSEndpoint });
-		const page = await browser.pages()[0];
+		const pages = await browser.pages();
+		const page = pages[0];
 		const Config = {
 			followNewTab: true,
 			fps: 25,
