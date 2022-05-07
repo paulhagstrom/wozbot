@@ -15,5 +15,5 @@ services:
     container_name: apple2js
     #restart: always
     volumes:
-      - ./images/apple2js/disks:/usr/src/emulator/disks
+      - ./images/apple2js/json/disks:/usr/src/emulator/json/disks
       - ./images/apple2js/startup.sh:/usr/src/emulator/startup.sh
