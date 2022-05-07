@@ -21,14 +21,14 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const page = await browser.pages()[0];
 		const Config = {
-			// followNewTab: true,
-			// fps: 25,
-			// ffmpeg_Path: '<path of ffmpeg_path>' || null,
-			// videoFrame: {
-			// 	width: 1024,
-			// 	height: 768,
-			// },
-			// aspectRatio: '4:3',
+			followNewTab: true,
+			fps: 25,
+			ffmpeg_Path: '<path of ffmpeg_path>' || null,
+			videoFrame: {
+				width: null,
+				height: null,
+			},
+			aspectRatio: '4:3',
 			recordDurationLimit: 1,
 		};
 		const recorder = new PuppeteerScreenRecorder(page, Config);
