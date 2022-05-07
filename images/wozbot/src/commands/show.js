@@ -7,6 +7,7 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 const puppeteer = require('puppeteer');
 const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 const fs = require('fs');
+const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -37,7 +38,7 @@ module.exports = {
 		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
 		// wait 1 second
-		await new Promise(r => setTimeout(r, 1000));
+		await wait(1000);
 		await recorder.stop();
 		await page.screenshot({path:'/tmp/screen.png'});
 		// await page.screenshot({
@@ -77,7 +78,7 @@ module.exports = {
 			.setTitle('Camera noise')
 			.setImage('attachment://screen.png');
 			// .setImage('attachment://screen.mp4');
-		await interaction.reply({
+		await interaction.editReply({
 			embeds: [replyEmbed],
 			files: [attpng, attvid]
 		});
