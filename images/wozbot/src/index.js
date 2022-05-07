@@ -16,8 +16,8 @@ const puppeteer = require('puppeteer');
 	const page = await browser.newPage();
 	await page.goto('http://apple2js:8080/apple2js.html#dos33master');
 	// go full screen
-	await page.keyboard.down('Shift');
-	await page.keyboard.press('F2');
+	//await page.keyboard.down('Shift');
+	//await page.keyboard.press('F2');
 	browser.disconnect();
 	// save the wsEndpoint
 	fs.writeFile('/tmp/a2js-ws', browserWSEndpoint, err => {
