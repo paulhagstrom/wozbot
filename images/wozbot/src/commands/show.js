@@ -21,6 +21,7 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const pages = await browser.pages();
 		const page = pages[0];
+		/*
 		const Config = {
 			followNewTab: true,
 			fps: 25,
@@ -35,6 +36,8 @@ module.exports = {
 		const recorder = new PuppeteerScreenRecorder(page, Config);
 		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
+		*/
+		await page.screenshot({path:'/tmp/screen.png'});
 		// await page.screenshot({
 		// 	path: 'screen.png'
 		// });
@@ -66,10 +69,12 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		*/
-		const file = new MessageAttachment('/tmp/screen.mp4');
+		// const file = new MessageAttachment('/tmp/screen.mp4');
+		const file = new MessageAttachment('/tmp/screen.png');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Camera noise')
-			.setImage('attachment://screen.mp4');
+			.setImage('attachment://screen.png');
+			// .setImage('attachment://screen.mp4');
 		await interaction.reply({
 			embeds: [replyEmbed],
 			files: [file]
