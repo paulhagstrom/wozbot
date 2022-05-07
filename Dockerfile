@@ -1,11 +1,16 @@
 FROM node:18
 
-# install x virtual framebuffer and xdotool for headless use
-# and also vnc and Fluxbox so we can watch or stream it in realtime
-# and install ffmpeg for video capture
+# install the bot
+# create the directory
+RUN mkdir -p /usr/src/bot
+WORKDIR /usr/src/bot
 
-RUN apt-get update -y
-RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
+# copy in the bot's dependencies
+COPY package.json /usr/src/bot
+RUN npm install
+
+# copy in the bot
+COPY . /usr/src/bot
 
 # download apple2js and do a static build
 
@@ -18,17 +23,13 @@ WORKDIR /usr/src/emulator
 RUN npm install
 RUN npm run build
 
-# install the bot
-# create the directory
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
+# install x virtual framebuffer and xdotool for headless use
+# and also vnc and Fluxbox so we can watch or stream it in realtime
+# and install ffmpeg for video capture
 
-# copy in the bot's dependencies
-COPY package.json /usr/src/bot
-RUN npm install
+RUN apt-get update -y
+RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
 
-# copy in the bot
-COPY . /usr/src/bot
 
 # start the bot
 CMD ["bash", "startup.sh"]
