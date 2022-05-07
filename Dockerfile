@@ -38,6 +38,6 @@ RUN NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=2048" npm run b
 RUN apt-get update -y
 RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
 
-
 # start the bot
+WORKDIR /usr/src/bot
 CMD ["bash", "startup.sh"]
