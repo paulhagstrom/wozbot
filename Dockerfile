@@ -10,7 +10,7 @@ RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
 # download apple2js and do a static build
 
 RUN curl -sSL "https://github.com/whscullin/apple2js/archive/refs/heads/master.zip" -o /tmp/apple2js.zip
-RUN mkdir -p /usr/src/emulator
+RUN mkdir -p /usr/src
 WORKDIR /usr/src/
 RUN unzip /tmp/apple2js.zip
 RUN mv apple2js-master emulator
