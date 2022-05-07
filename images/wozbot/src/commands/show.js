@@ -6,13 +6,15 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 // const Keyv = require('keyv');
 const puppeteer = require('puppeteer');
 const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
+const fs = require('fs');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('show')
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
-		const browserWSEndpoint = require('/tmp/a2js-ws');
+		const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
+		// const browserWSEndpoint = require('/tmp/a2js-ws');
 		// const keyv = new Keyv();
 		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		console.log(`show: retrieved browser endpoint: ${browserWSEndpoint}`);
