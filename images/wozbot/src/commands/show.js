@@ -13,6 +13,7 @@ module.exports = {
 		.setName('show')
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
+		await interaction.deferReply();
 		const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
 		// const browserWSEndpoint = require('/tmp/a2js-ws');
 		// const keyv = new Keyv();
