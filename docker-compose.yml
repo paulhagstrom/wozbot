@@ -8,6 +8,13 @@ services:
     ports:
       - "15901:5900" # VNC is port 15901 from outside
     volumes:
-      - ./config.json:/usr/src/bot/config.json
-      - ./startup.sh:/usr/src/bot/startup.sh
-      - ./disks:/usr/src/emulator/disks
+      - .images/wozbot/config.json:/usr/src/bot/config.json
+      - .images/wozbot/startup.sh:/usr/src/bot/startup.sh
+  apple2js:
+    build: .
+    image: apple2js
+    container_name: apple2js
+    restart: always
+    volumes:
+      - ./images/apple2js/disks:/usr/src/emulator/disks
+      - ./images/apple2js/startup.sh:/usr/src/bot/startup.sh

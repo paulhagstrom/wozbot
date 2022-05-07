@@ -2,23 +2,10 @@ const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 // Allow spawning so we can launch the internal http server
-const { exec } = require('child_process');
+//const { exec } = require('child_process');
 // Puppeteer for controlling headless browser
 const { puppeteer } = require('puppeteer');
 const Keyv = require('keyv');
-
-// launch the http server for the static js emulator
-exec('cd /usr/src/emulator && /usr/src/bot/node_modules/http-server/bin/http-server', (error, stdout, stderr) => {
-	if (error) {
-		console.log(`error: ${error.message}`);
-		return;
-	}
-	if (stderr) {
-		console.log(`stderr:${stderr}`);
-		return;
-	}
-	console.log(`stdout: ${stdout}`);
-});
 
 // launch a headless browser
 (async() => {
