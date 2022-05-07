@@ -12,7 +12,7 @@ RUN mkdir -p /usr/src/bot
 WORKDIR /usr/src/bot
 
 # copy in the bot's dependencies
-COPY package.json /usr/src/bot
+COPY src/package.json /usr/src/bot
 RUN npm install
 
 # copy in the bot
