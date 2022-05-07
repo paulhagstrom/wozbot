@@ -8,8 +8,8 @@ services:
     ports:
       - "15901:5900" # VNC is port 15901 from outside
     volumes:
-      - .images/wozbot/config.json:/usr/src/bot/config.json
-      - .images/wozbot/startup.sh:/usr/src/bot/startup.sh
+      - ./images/wozbot/config.json:/usr/src/bot/config.json
+      - ./images/wozbot/startup.sh:/usr/src/bot/startup.sh
   apple2js:
     build: .
     image: apple2js
