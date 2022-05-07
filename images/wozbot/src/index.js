@@ -5,7 +5,7 @@ const { token } = require('./config.json');
 //const { exec } = require('child_process');
 // Puppeteer for controlling headless browser
 const puppeteer = require('puppeteer');
-const Keyv = require('keyv');
+// const Keyv = require('keyv');
 
 // launch a headless browser
 (async() => {
@@ -20,8 +20,11 @@ const Keyv = require('keyv');
 	await page.keyboard.press('F2');
 	browser.disconnect();
 	// save the wsEndpoint
-	const keyv = new Keyv();
-	await keyv.set('browserWSEndpoint', browserWSEndpoint);
+	fs.writeFile('/tmp/a2js-ws', browserWSEndpoint, err => {
+		if (err) console.error(err);
+	});
+	// const keyv = new Keyv();
+	// await keyv.set('browserWSEndpoint', browserWSEndpoint);
 })();
 
 // Create a new client instance

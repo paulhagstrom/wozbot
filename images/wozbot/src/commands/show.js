@@ -3,7 +3,7 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 
 // Allow spawning so we can launch the emulator in the container
 // const { exec } = require('child_process');
-const Keyv = require('keyv');
+// const Keyv = require('keyv');
 const puppeteer = require('puppeteer');
 const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 
@@ -12,8 +12,9 @@ module.exports = {
 		.setName('show')
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
-		const keyv = new Keyv();
-		const browserWSEndpoint = await keyv.get('browserWSEndpoint');
+		const browserWSEndpoint = require('/tmp/a2js-ws');
+		// const keyv = new Keyv();
+		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		console.log(`show: retrieved browser endpoint: ${browserWSEndpoint}`);
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const page = await browser.pages()[0];
