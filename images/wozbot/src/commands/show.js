@@ -33,7 +33,7 @@ module.exports = {
 			recordDurationLimit: 1,
 		};
 		const recorder = new PuppeteerScreenRecorder(page, Config);
-		const SavePath = './screen.mp4';
+		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
 		// await page.screenshot({
 		// 	path: 'screen.png'
@@ -66,7 +66,7 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		*/
-		const file = new MessageAttachment('./screen.mp4');
+		const file = new MessageAttachment('/tmp/screen.mp4');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Camera noise')
 			.setImage('attachment://screen.mp4');
