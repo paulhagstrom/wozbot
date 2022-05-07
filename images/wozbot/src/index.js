@@ -4,7 +4,7 @@ const { token } = require('./config.json');
 // Allow spawning so we can launch the internal http server
 //const { exec } = require('child_process');
 // Puppeteer for controlling headless browser
-const { puppeteer } = require('puppeteer');
+const puppeteer = require('puppeteer');
 const Keyv = require('keyv');
 
 // launch a headless browser
