@@ -5,7 +5,7 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 // const { exec } = require('child_process');
 // const Keyv = require('keyv');
 const puppeteer = require('puppeteer');
-// const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
+const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 const fs = require('fs');
 
 module.exports = {
@@ -21,7 +21,6 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const pages = await browser.pages();
 		const page = pages[0];
-		/*
 		const Config = {
 			followNewTab: true,
 			fps: 25,
@@ -36,7 +35,6 @@ module.exports = {
 		const recorder = new PuppeteerScreenRecorder(page, Config);
 		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
-		*/
 		await page.screenshot({path:'/tmp/screen.png'});
 		// await page.screenshot({
 		// 	path: 'screen.png'
@@ -69,15 +67,15 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		*/
-		// const file = new MessageAttachment('/tmp/screen.mp4');
-		const file = new MessageAttachment('/tmp/screen.png');
+		const attvid = new MessageAttachment('/tmp/screen.mp4');
+		const attpng = new MessageAttachment('/tmp/screen.png');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Camera noise')
 			.setImage('attachment://screen.png');
 			// .setImage('attachment://screen.mp4');
 		await interaction.reply({
 			embeds: [replyEmbed],
-			files: [file]
+			files: [attpng, attvid]
 		});
 	},
 };
