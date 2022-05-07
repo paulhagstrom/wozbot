@@ -35,6 +35,9 @@ module.exports = {
 		const recorder = new PuppeteerScreenRecorder(page, Config);
 		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
+		// wait 1 second
+		await new Promise(r => setTimeout(r, 1000));
+		await recorder.stop();
 		await page.screenshot({path:'/tmp/screen.png'});
 		// await page.screenshot({
 		// 	path: 'screen.png'
