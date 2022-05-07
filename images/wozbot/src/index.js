@@ -21,7 +21,7 @@ const Keyv = require('keyv');
 	browser.disconnect();
 	// save the wsEndpoint
 	const keyv = new Keyv();
-	keyv.put('browserWSEndpoint', browserWSEndpoint);
+	keyv.set('browserWSEndpoint', browserWSEndpoint);
 })();
 
 // Create a new client instance
