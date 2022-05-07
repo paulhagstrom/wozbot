@@ -22,7 +22,7 @@ const Keyv = require('keyv');
 	// save the wsEndpoint
 	const keyv = Keyv.new();
 	keyv.put('browserWSEndpoint', browserWSEndpoint);
-})
+})();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
