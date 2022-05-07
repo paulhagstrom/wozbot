@@ -26,7 +26,7 @@ exec('usr/src/bot/node_modules/http-server/bin/http-server /usr/src/emulator', (
 	const browserWSEndpoint = browser.wsEndpoint();
 	// start the emulator
 	const page = await browser.newPage();
-	await page.goto('file://localhost/apple2js.html#ugwp');
+	await page.goto('http://localhost/apple2js.html#ugwp');
 	browser.disconnect();
 	// save the wsEndpoint
 	const keyv = Keyv.new();
