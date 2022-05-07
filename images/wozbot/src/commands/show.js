@@ -13,7 +13,7 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		const keyv = new Keyv();
-		const browserWSEndpoint = keyv.get('browserWSEndpoint');
+		const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const page = await browser.pages()[0];
 		const Config = {

@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Types a line into the machine and hits return!'),
 	async execute(interaction) {
     const keyv = new Keyv();
-		const browserWSEndpoint = keyv.get('browserWSEndpoint');
+		const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const page = await browser.pages()[0];
 		await interaction.reply('Type!');

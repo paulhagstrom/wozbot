@@ -11,7 +11,7 @@ module.exports = {
 		.setDescription('(Re)boots the machine!'),
 	async execute(interaction) {
 		const keyv = new Keyv();
-		const browserWSEndpoint = keyv.get('browserWSEndpoint');
+		const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const page = await browser.pages()[0];
 		await page.goto('file://localhost/apple2js.html#ugwp');
