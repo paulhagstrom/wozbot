@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 // Allow spawning so we can launch the emulator in the container
 // const { exec } = require('child_process');
-const { puppeteer } = require('puppeteer');
+const puppeteer = require('puppeteer');
 // const fs = require('fs');
 const Keyv = require('keyv');
 

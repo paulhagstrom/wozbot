@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Keyv = require('keyv');
-const { puppeteer } = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 module.exports = {
 	data: new SlashCommandBuilder()
