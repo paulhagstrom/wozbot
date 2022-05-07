@@ -5,10 +5,10 @@ const { token } = require('./config.json');
 const { exec } = require('child_process');
 // Puppeteer for controlling headless browser
 const { puppeteer } = require('puppeteer');
-const Keyv = require('Keyv');
+const Keyv = require('keyv');
 
 // launch the http server for the static js emulator
-exec('usr/src/bot/node_modules/http-server/bin/http-server /usr/src/emulator', (error, stdout, stderr) => {
+exec('cd /usr/src/emulator && /usr/src/bot/node_modules/http-server/bin/http-server', (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`);
 		return;
@@ -26,7 +26,7 @@ exec('usr/src/bot/node_modules/http-server/bin/http-server /usr/src/emulator', (
 	const browserWSEndpoint = browser.wsEndpoint();
 	// start the emulator
 	const page = await browser.newPage();
-	await page.goto('http://localhost/apple2js.html#ugwp');
+	await page.goto('http://localhost/apple2js.html#dos33master');
 	// go full screen
 	await page.keyboard.down('Shift');
 	await page.keyboard.press('F2');

@@ -1,21 +1,12 @@
 FROM node:18
 
-# install the bot
-# create the directory
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
-
-# copy in the bot's dependencies
-COPY package.json /usr/src/bot
-RUN npm install
-
-# copy in the bot
-COPY . /usr/src/bot
-
 # install dependencies of dependencies of apple2js
 
 RUN apt-get update -y
 RUN apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+# make the bot directory
+RUN mkdir -p /usr/src/bot
 
 # download apple2js and do a static build
 # note: to make it through the build I needed to add a swapfile to my machine
@@ -37,6 +28,16 @@ RUN NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=2048" npm run b
 
 RUN apt-get update -y
 RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
+
+# install the bot
+WORKDIR /usr/src/bot
+
+# copy in the bot's dependencies
+COPY package.json /usr/src/bot
+RUN npm install
+
+# copy in the bot
+COPY . /usr/src/bot
 
 # start the bot
 WORKDIR /usr/src/bot

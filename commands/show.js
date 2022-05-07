@@ -3,7 +3,7 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 
 // Allow spawning so we can launch the emulator in the container
 // const { exec } = require('child_process');
-const Keyv = require('Keyv');
+const Keyv = require('keyv');
 const { puppeteer } = require('puppeteer');
 const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 
