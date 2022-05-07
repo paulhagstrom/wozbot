@@ -16,7 +16,7 @@ COPY src/package.json /usr/src/bot
 RUN npm install
 
 # copy in the bot
-COPY . /usr/src/bot
+COPY src /usr/src/bot
 
 # start the bot
 CMD ["node", "index.js"]
