@@ -24,6 +24,7 @@ exec('cd /usr/src/emulator && /usr/src/bot/node_modules/http-server/bin/http-ser
 (async() => {
 	const browser = await puppeteer.launch();
 	const browserWSEndpoint = browser.wsEndpoint();
+	console.log(`browser endpoint: ${browserWSEndpoint}`);
 	// start the emulator
 	const page = await browser.newPage();
 	await page.goto('http://localhost/apple2js.html#dos33master');
