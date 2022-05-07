@@ -4,6 +4,7 @@ FROM node:18
 # and also vnc and Fluxbox so we can watch or stream it in realtime
 # and install ffmpeg for video capture
 
+RUN apt-get update -y
 RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
 
 # download apple2js and do a static build
