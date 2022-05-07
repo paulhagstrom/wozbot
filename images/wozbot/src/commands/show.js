@@ -26,7 +26,7 @@ module.exports = {
 		const Config = {
 			followNewTab: true,
 			fps: 25,
-			ffmpeg_Path: null,
+			ffmpeg_Path: '/usr/bin/ffmpeg',
 			videoFrame: {
 				width: null,
 				height: null,
@@ -34,12 +34,14 @@ module.exports = {
 			aspectRatio: '4:3',
 			recordDurationLimit: 1,
 		};
+		console.log('Recording starting.');
 		const recorder = new PuppeteerScreenRecorder(page, Config);
 		const SavePath = '/tmp/screen.mp4';
 		await recorder.start(SavePath);
 		// wait 1 second
 		await wait(1000);
 		await recorder.stop();
+		console.log('Recording stopped.');
 		await page.screenshot({path:'/tmp/screen.png'});
 		// await page.screenshot({
 		// 	path: 'screen.png'
@@ -78,9 +80,11 @@ module.exports = {
 			.setTitle('Camera noise')
 			.setImage('attachment://screen.png');
 			// .setImage('attachment://screen.mp4');
+		console.log('Reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed],
 			files: [attpng, attvid]
 		});
+		console.log('Reply has gone out.');
 	},
 };
