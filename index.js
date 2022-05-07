@@ -27,6 +27,9 @@ exec('usr/src/bot/node_modules/http-server/bin/http-server /usr/src/emulator', (
 	// start the emulator
 	const page = await browser.newPage();
 	await page.goto('http://localhost/apple2js.html#ugwp');
+	// go full screen
+	await page.keyboard.down('Shift');
+	await page.keyboard.press('F2');
 	browser.disconnect();
 	// save the wsEndpoint
 	const keyv = Keyv.new();

@@ -13,7 +13,7 @@ module.exports = {
 		const page = await browser.pages()[0];
 		await interaction.reply('Type!');
     const string = interaction.options.getString('input');
-    page.keyboard.type(string);
-    page.keyboard.press('Enter');
+    await page.keyboard.type(string);
+    await page.keyboard.press('Enter');
 	},
 };
