@@ -5,7 +5,7 @@ const { MessageAttachment, MessageEmbed } = require('discord.js');
 // const { exec } = require('child_process');
 // const Keyv = require('keyv');
 const puppeteer = require('puppeteer');
-const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
+// const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 const fs = require('fs');
 
 module.exports = {
