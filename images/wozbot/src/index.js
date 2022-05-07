@@ -20,7 +20,7 @@ const Keyv = require('keyv');
 	await page.keyboard.press('F2');
 	browser.disconnect();
 	// save the wsEndpoint
-	const keyv = Keyv.new();
+	const keyv = new Keyv();
 	keyv.put('browserWSEndpoint', browserWSEndpoint);
 })();
 
