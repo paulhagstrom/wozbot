@@ -1,31 +1,20 @@
 FROM node:18
 
-# download and compile and install linapple
-
-RUN curl -sSL "https://github.com/linappleii/linapple/archive/refs/heads/master.zip" -o /tmp/linapple.zip
-RUN mkdir -p /usr/src/linapple
-WORKDIR /usr/src
-RUN unzip /tmp/linapple.zip
-WORKDIR /usr/src/linapple-master
-RUN apt-get update -y
-RUN apt-get install -y git libzip-dev libsdl1.2-dev libsdl-image1.2-dev libcurl4-openssl-dev zlib1g-dev imagemagick
-RUN make
-RUN make install
-RUN mkdir -p /root/.linapple
-RUN mkdir -p /root/.config
-RUN mkdir -p /root/.linapple/disks/
-RUN mkdir -p /root/.config/linapple/
-RUN cp /usr/local/etc/linapple/linapple.conf /root/.config/linapple/
-RUN cp /usr/local/share/linapple/Master.dsk /root/.linapple/disks/
-
-# install ffmpeg for viedeo capture
-
-RUN apt-get install -y ffmpeg
-
 # install x virtual framebuffer and xdotool for headless use
 # and also vnc and Fluxbox so we can watch or stream it in realtime
+# and install ffmpeg for video capture
 
-RUN apt-get install -y xvfb xdotool x11vnc fluxbox
+RUN apt-get install -y xvfb xdotool x11vnc fluxbox ffmpeg
+
+# download apple2js and do a static build
+
+RUN curl -sSL "https://github.com/whscullin/apple2js/archive/refs/heads/master.zip" -o /tmp/apple2js.zip
+RUN mkdir -p /usr/src/emulator
+WORKDIR /usr/src/emulator
+RUN unzip /tmp/apple2js.zip
+WORKDIR /usr/src/emulator
+RUN npm install
+RUN npm run build
 
 # install the bot
 # create the directory
@@ -40,5 +29,4 @@ RUN npm install
 COPY . /usr/src/bot
 
 # start the bot
-#CMD ["node", "index.js"]
 CMD ["bash", "startup.sh"]

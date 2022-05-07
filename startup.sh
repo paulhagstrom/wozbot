@@ -1,9 +1,4 @@
 #!/bin/bash
-
-#Xvfb :1 &
-#DISPLAY=:1
-#export DISPLAY
-#/usr/bin/x11vnc -display :1 -forever -localhost -nopw -bg -xkb
-/usr/bin/x11vnc -create -env FD_PROG=/usr/bin/fluxbox -env X11VNC_FINDDISPLAY_ALWAYS_FAILS=1 -env X11VNC_CREATE_GEOM={1:-1024x768x16} -gone 'killall Xvfb' -bg -nopw -forever
-#fluxbox &
+/usr/src/emulator/bin/dsk2json -c "Game" -n "Untitled Word Game Pro" /usr/src/bot/disks/ugwp.dsk > /usr/src/emulator/json/disks/ugwp.json
+/usr/src/emulator/bin/index
 node index.js
