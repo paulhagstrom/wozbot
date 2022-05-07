@@ -24,7 +24,7 @@ module.exports = {
 		const Config = {
 			followNewTab: true,
 			fps: 25,
-			ffmpeg_Path: '<path of ffmpeg_path>' || null,
+			ffmpeg_Path: null,
 			videoFrame: {
 				width: null,
 				height: null,
