@@ -9,7 +9,7 @@ const Keyv = require('keyv');
 
 // launch a headless browser
 (async() => {
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 	const browserWSEndpoint = browser.wsEndpoint();
 	console.log(`browser endpoint: ${browserWSEndpoint}`);
 	// start the emulator
