@@ -25,7 +25,8 @@ RUN unzip /tmp/apple2js.zip
 RUN mv apple2js-master emulator
 WORKDIR /usr/src/emulator
 RUN npm install
-RUN npm run build
+# this environment variable also used to build on my macOS machine
+RUN NODE_OPTIONS=--openssl-legacy-provider npm run build
 
 # install x virtual framebuffer and xdotool for headless use
 # and also vnc and Fluxbox so we can watch or stream it in realtime
