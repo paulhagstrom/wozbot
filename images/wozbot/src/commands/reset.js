@@ -16,7 +16,7 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const pages = await browser.pages();
 		const page = pages[0];
-		await page.goto('file://localhost/apple2js.html#ugwp');
+		await page.goto('http://apple2js:8080/apple2js.html#ugwp');
 		await interaction.reply('CHUNKA CHUNKA CHUNKA!');
 	},
 };
