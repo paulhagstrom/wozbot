@@ -46,7 +46,7 @@ module.exports = {
 		*/
 		await page.screenshot({path:'/tmp/screen.png'});
 		// 8fps, 16 frames
-		for (let frame = 1; frame <= 16; frame++) {
+		for (let frame = 1; frame <= 8; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.png`});
 			wait(125);
 		}
