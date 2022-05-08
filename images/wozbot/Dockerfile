@@ -14,6 +14,7 @@ RUN curl -sSL "https://github.com/ivanizag/izapple2/releases/download/v1.2/izapp
 RUN mkdir -p /usr/src/emulator
 WORKDIR /usr/src/emulator
 RUN mv /tmp/izapple2sdl_linux .
+RUN chmod 755 /tmp/izapple2sdl_linux
 
 # install the bot
 RUN mkdir -p /usr/src/bot
