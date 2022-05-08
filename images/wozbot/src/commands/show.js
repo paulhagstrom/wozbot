@@ -24,19 +24,6 @@ module.exports = {
 			}
 			console.log(`stdout: ${stdout}`);
 		});
-		// console.log('Running ffmpeg to re-encode');
-		// // ensmallen it
-		// execSync('ffmpeg -y -i /tmp/screen.mp4 -r 12 -s 800x600 /tmp/screen.gif', (error, stdout, stderr) => {
-		// 	if (error) {
-		// 		console.log(`error: ${error.message}`);
-		// 		return;
-		// 	}
-		// 	if (stderr) {
-		// 		console.log(`stderr:${stderr}`);
-		// 		return;
-		// 	}
-		// 	console.log(`stdout: ${stdout}`);
-		// });
 
 		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const replyEmbed = new MessageEmbed()
