@@ -46,12 +46,12 @@ module.exports = {
 		*/
 		await page.screenshot({path:'/tmp/screen.png'});
 		// 8fps, 16 frames
-		for (let frame = 11; frame <= 26; frame++) {
+		for (let frame = 1; frame <= 16; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.png`});
 			wait(125);
 		}
 		// use ffmpeg to make a looping gif
-		execSync('ffmpeg -framerate 8 -i /tmp/screen??.png -loop /tmp/screen.gif');
+		execSync('ffmpeg -framerate 8 -i "/tmp/screen%d.png" -loop /tmp/screen.gif');
 		// await page.screenshot({
 		// 	path: 'screen.png'
 		// });
