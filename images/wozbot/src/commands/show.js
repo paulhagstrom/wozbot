@@ -51,7 +51,7 @@ module.exports = {
 			wait(125);
 		}
 		// use ffmpeg to make a looping gif
-		execSync('ffmpeg -framerate 8 -i "/tmp/screen%d.png" -loop /tmp/screen.gif');
+		execSync('ffmpeg -f image2 -framerate 8 -i /tmp/screen%d.png -loop 0 /tmp/screen.gif');
 		// await page.screenshot({
 		// 	path: 'screen.png'
 		// });
