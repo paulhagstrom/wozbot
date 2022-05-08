@@ -41,7 +41,7 @@ module.exports = {
 		const attvid = new MessageAttachment('/tmp/screen_small.gif');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Current screen')
-			.setImage('attachment://screen_small.gif');
+			.setImage('attachment://screen.gif');
 		console.log('Reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed],
