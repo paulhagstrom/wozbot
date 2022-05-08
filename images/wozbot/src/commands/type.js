@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-// const Keyv = require('keyv');
-// const puppeteer = require('puppeteer');
-// const fs = require('fs');
+// Allow spawning so we can launch the xdotool to type
+const { execSync } = require('child_process');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,25 +8,36 @@ module.exports = {
 		.setDescription('Types a line into the machine and hits return!')
     .addStringOption(option => option.setName('line').setDescription('Enter a line to type.')),
 	async execute(interaction) {
-    // const keyv = new Keyv();
-		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
-    // const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
-		// const browser = await puppeteer.connect({ browserWSEndpoint });
-    // const pages = await browser.pages();
-		// const page = pages[0];
-    const line = interaction.options.getString('line');
-    // if (line) {
-    //   await interaction.reply(`Type! ${line}`);
-    //   await page.keyboard.type(line);
-    // } else {
-    //   await interaction.reply(`Pressing Enter.`);
-    // }
-    // await page.keyboard.press('Enter');
+		const line = interaction.options.getString('line');
+		// type the line
+		execSync(`xdootool search --name Apple type --delay 100 ${line}`, (error, stdout, stderr) => {
+			if (error) {
+				console.log(`error: ${error.message}`);
+				return;
+			}
+			if (stderr) {
+				console.log(`stderr:${stderr}`);
+				return;
+			}
+			console.log(`stdout: ${stdout}`);
+		});
     if (line) {
       await interaction.reply(`Type: ${line}`);
       // await page.keyboard.type(line);
     } else {
       await interaction.reply(`Hitting return.`);
     }
-	},
+		// hit return
+		execSync('xdootool search --name Apple key Return', (error, stdout, stderr) => {
+			if (error) {
+				console.log(`error: ${error.message}`);
+				return;
+			}
+			if (stderr) {
+				console.log(`stderr:${stderr}`);
+				return;
+			}
+			console.log(`stdout: ${stdout}`);
+		});
+},
 };
