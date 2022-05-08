@@ -16,4 +16,8 @@ services:
     #restart: always
     volumes:
       - ./images/apple2js/json/disks:/usr/src/emulator/json/disks
+      - ./images/apple2js/player-standalone/cyaniide.html:/usr/src/emulator/cyaniide.html
+      - ./images/apple2js/player-standalone/cyaniide.wasm:/usr/src/emulator/cyaniide.wasm
+      - ./images/apple2js/player-standalone/wasm_exec.js:/usr/src/emulator/wasm_exec.js
+      - ./images/apple2js/disks/ugwp.dsk:/usr/src/emulator/ugwp.dsk
       - ./images/apple2js/startup.sh:/usr/src/emulator/startup.sh
