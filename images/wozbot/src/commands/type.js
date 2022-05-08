@@ -18,7 +18,8 @@ module.exports = {
     const line = interaction.options.getString('line');
     if (line) {
       await interaction.reply(`Type! ${line}`);
-      await page.keyboard.type(line);
+			// introduce a delay because it can outpace the emulator
+      await page.keyboard.type(line, {delay: 100});
     } else {
       await interaction.reply(`Pressing Enter.`);
     }
