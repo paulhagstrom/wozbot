@@ -49,7 +49,7 @@ const { exec } = require('child_process');
 
 // launch a headless browser
 console.log('launching izapple2.');
-exec('izapple2 disks/uwgp.dsk &', (error, stdout, stderr) => {
+exec('/usr/src/emulator/izapple2 disks/uwgp.dsk &', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 			}
