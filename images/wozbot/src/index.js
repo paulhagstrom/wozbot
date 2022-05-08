@@ -58,15 +58,13 @@ const minimal_args = [
 	const page = await browser.newPage();
 	await page.goto('http://apple2js:8080/apple2js.html?gl_canvas=false#dos33master');
 	// go full screen
-	//await page.keyboard.down('Shift');
-	//await page.keyboard.press('F2');
+	await page.keyboard.down('Shift');
+	await page.keyboard.press('F2');
 	browser.disconnect();
 	// save the wsEndpoint
 	fs.writeFile('/tmp/a2js-ws', browserWSEndpoint, err => {
 		if (err) console.error(err);
 	});
-	// const keyv = new Keyv();
-	// await keyv.set('browserWSEndpoint', browserWSEndpoint);
 })();
 
 // Create a new client instance
