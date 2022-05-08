@@ -9,21 +9,20 @@ module.exports = {
     .addStringOption(option => option.setName('line').setDescription('Enter a line to type.')),
 	async execute(interaction) {
 		const line = interaction.options.getString('line');
-		// type the line
-		execSync(`xdotool search --name Apple type --delay 100 ${line}`, (error, stdout, stderr) => {
-			if (error) {
-				console.log(`error: ${error.message}`);
-				return;
-			}
-			if (stderr) {
-				console.log(`stderr:${stderr}`);
-				return;
-			}
-			console.log(`stdout: ${stdout}`);
-		});
     if (line) {
       await interaction.reply(`Type: ${line}`);
-      // await page.keyboard.type(line);
+			// type the line
+			execSync(`xdotool search --name Apple type --delay 100 ${line}`, (error, stdout, stderr) => {
+				if (error) {
+					console.log(`error: ${error.message}`);
+					return;
+				}
+				if (stderr) {
+					console.log(`stderr:${stderr}`);
+					return;
+				}
+				console.log(`stdout: ${stdout}`);
+			});
     } else {
       await interaction.reply(`Hitting return.`);
     }
