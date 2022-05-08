@@ -1,8 +1,7 @@
 version: '3.2'
 services:
   wozbot:
-    # build: .
-    image: wozbot
+    image: wozbot:izapple2
     container_name: wozbot
     #restart: always
     ports:
@@ -15,36 +14,3 @@ services:
       - type: bind
         source: ./images/wozbot/disks
         target: /usr/src/bot/disks
-  # izapple2:
-  #   image: izapple2
-  #   container_name: izapple2
-  #   volumes:
-  #     - type: bind
-  #       source: ./images/izapple2/startup.sh
-  #       target: /usr/src/emulator/startup.sh
-  # apple2js:
-  #   # build: .
-  #   image: apple2js
-  #   container_name: apple2js
-  #   #restart: always
-  #   volumes:
-  #     - ./images/apple2js/json/disks:/usr/src/emulator/json/disks
-  #     - ./images/apple2js/disks:/usr/src/emulator/disks
-  #     - type: bind
-  #       source: ./images/apple2js/startup.sh
-  #       target: /usr/src/emulator/startup.sh
-  #     # - type: bind
-  #     #   source: ./images/apple2js/player-standalone/dos.dsk
-  #     #   target: /usr/src/emulator/dos.dsk
-  #     # - type: bind
-  #     #   source: ./images/apple2js/disks/ugwp.dsk
-  #     #   target: /usr/src/emulator/ugwp.dsk
-  #     - type: bind
-  #       source: ./images/apple2js/player-standalone/cyaniide.html
-  #       target: /usr/src/emulator/cyaniide.html
-  #     - type: bind
-  #       source: ./images/apple2js/player-standalone/cyaniide.wasm
-  #       target: /usr/src/emulator/cyaniide.wasm
-  #     - type: bind
-  #       source: ./images/apple2js/player-standalone/wasm_exec.js
-  #       target: /usr/src/emulator/wasm_exec.js
