@@ -44,7 +44,7 @@ module.exports = {
 		await recorder.stop();
 		console.log('Recording stopped.');
 		*/
-		await page.screenshot({path:'/tmp/screen.png'});
+		// await page.screenshot({path:'/tmp/screen.png'});
 		// 8fps, 16 frames
 		for (let frame = 1; frame <= 8; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.png`});
@@ -85,15 +85,17 @@ module.exports = {
 		*/
 		// const attvid = new MessageAttachment('/tmp/screen.mp4');
 		const attvid = new MessageAttachment('/tmp/screen.gif');
-		const attpng = new MessageAttachment('/tmp/screen.png');
+		// const attpng = new MessageAttachment('/tmp/screen.png');
 		const replyEmbed = new MessageEmbed()
-			.setTitle('Camera noise')
-			.setImage('attachment://screen.png');
+			.setTitle('Current screen')
+			.setImage('attachment://screen.gif');
+			// .setImage('attachment://screen.png');
 			// .setImage('attachment://screen.mp4');
 		console.log('Reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed],
-			files: [attpng, attvid]
+			files: [attvid]
+			// files: [attpng, attvid]
 		});
 		console.log('Reply has gone out.');
 	},
