@@ -1,6 +1,4 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-// const puppeteer = require('puppeteer');
-// const fs = require('fs');
 const { execSync } = require('child_process');
 
 module.exports = {
@@ -29,12 +27,6 @@ module.exports = {
 			}
 			console.log(`stdout: ${stdout}`);
 		});
-		// const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
-		// const browser = await puppeteer.connect({ browserWSEndpoint });
-		// const pages = await browser.pages();
-		// const page = pages[0];
-		// await page.goto('http://apple2js:8080/cyaniide.html?disk1=disks/ugwp.dsk');
-		// await page.goto('http://apple2js:8080/apple2js.html#ugwp');
 		await interaction.editReply('CHUNKA CHUNKA CHUNKA!');
 	},
 };

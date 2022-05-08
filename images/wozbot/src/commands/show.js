@@ -1,9 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
-
-// Allow spawning so we can launch the emulator in the container
 const { execSync } = require('child_process');
-// const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -33,7 +30,6 @@ module.exports = {
 		await interaction.editReply({
 			embeds: [replyEmbed],
 			files: [attvid]
-			// files: [attpng, attvid]
 		});
 		console.log('Reply has gone out.');
 	},
