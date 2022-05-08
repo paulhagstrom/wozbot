@@ -12,6 +12,9 @@ services:
       - type: bind
         source: ./images/wozbot/startup.sh
         target: /usr/src/bot/startup.sh
+      - type: bind
+        source: ./images/wozbot/disks
+        target: /usr/src/bot/disks
   # izapple2:
   #   image: izapple2
   #   container_name: izapple2
