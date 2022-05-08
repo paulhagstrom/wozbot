@@ -25,7 +25,7 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		// ensmallen it
-		execSync('ffmpeg -loglevel warning -y -i /tmp/screen.mp4 -vcodec libx264 -vf "scale=800:600:force_original_aspect_ratio=decrease" -acodec aac /tmp/screen_small.mp4', (error, stdout, stderr) => {
+		execSync('ffmpeg -loglevel warning -y -i /tmp/screen.mp4 -vcodec libx264 -vf "scale=800:600:force_original_aspect_ratio=decrease" -pix_fmt yuv420p -strict experimental -r 30 -t 2:20 -acodec aac -vb 1024k -minrate 1024k -maxrate 1024k -bufsize 1024k -ar 44100 -ac 2 /tmp/screen_small.mp4', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 				return;
@@ -37,12 +37,12 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 
-		const attvid = new MessageAttachment('/tmp/screen_small.mp4');
+		const attvid = new MessageAttachment('/tmp/screen.mp4');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Current screen')
 			// .setImage('attachment://screen.gif');
 			// .setImage('attachment://screen.png');
-			.setImage('attachment://screen_small.mp4');
+			.setImage('attachment://screen.mp4');
 		console.log('Reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed],
