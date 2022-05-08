@@ -21,7 +21,9 @@ module.exports = {
 		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
 		console.log(`show: retrieved browser endpoint: ${browserWSEndpoint}`);
 		const browser = await puppeteer.connect({ browserWSEndpoint });
+		console.log('connected');
 		const pages = await browser.pages();
+		console.log('pages retrieved');
 		const page = pages[0];
 		/*
 		const Config = {
@@ -46,12 +48,15 @@ module.exports = {
 		*/
 		// await page.screenshot({path:'/tmp/screen.png'});
 		// 8fps, 16 frames
+		console.log('Frame capture starting.');
 		for (let frame = 1; frame <= 8; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.jpg`});
 			wait(125);
 		}
+		console.log('Frames captured.');
 		// use ffmpeg to make a looping gif
 		execSync('ffmpeg -y -f image2 -framerate 8 -i /tmp/screen%d.jpg -loop 0 /tmp/screen.gif');
+		console.log('Gif created.');
 		// await page.screenshot({
 		// 	path: 'screen.png'
 		// });
