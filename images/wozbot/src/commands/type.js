@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 // const Keyv = require('keyv');
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+// const puppeteer = require('puppeteer');
+// const fs = require('fs');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,17 +11,23 @@ module.exports = {
 	async execute(interaction) {
     // const keyv = new Keyv();
 		// const browserWSEndpoint = await keyv.get('browserWSEndpoint');
-    const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
-		const browser = await puppeteer.connect({ browserWSEndpoint });
-    const pages = await browser.pages();
-		const page = pages[0];
+    // const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
+		// const browser = await puppeteer.connect({ browserWSEndpoint });
+    // const pages = await browser.pages();
+		// const page = pages[0];
     const line = interaction.options.getString('line');
+    // if (line) {
+    //   await interaction.reply(`Type! ${line}`);
+    //   await page.keyboard.type(line);
+    // } else {
+    //   await interaction.reply(`Pressing Enter.`);
+    // }
+    // await page.keyboard.press('Enter');
     if (line) {
-      await interaction.reply(`Type! ${line}`);
-      await page.keyboard.type(line);
+      await interaction.reply(`Type: ${line}`);
+      // await page.keyboard.type(line);
     } else {
-      await interaction.reply(`Pressing Enter.`);
+      await interaction.reply(`Hitting return.`);
     }
-    await page.keyboard.press('Enter');
 	},
 };
