@@ -17,7 +17,7 @@ module.exports = {
 		await interaction.deferReply();
 		console.log('Running ffmpeg to record');
 		// record 1 second
-		execSync('ffmpeg -y -hide_banner -loglevel warning -draw_mouse 0 -f x11grab -r 30 -video_size 512x384 -i :1 -q:v 0 -pix_fmt yuv422p -t 1 /tmp/screen.mp4', (error, stdout, stderr) => {
+		execSync('ffmpeg -y -hide_banner -loglevel warning -draw_mouse 0 -f x11grab -r 30 -video_size 512x384 -i :1.0 -q:v 0 -pix_fmt yuv422p -t 1 /tmp/screen.mp4', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 				return;
