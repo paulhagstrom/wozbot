@@ -10,7 +10,7 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.deferReply();
 		// kill old one
-		execSync('pkill -f izapple2', (error, stdout, stderr) => {
+		execSync('pkill -f izapple2sdl_linux', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 			}
