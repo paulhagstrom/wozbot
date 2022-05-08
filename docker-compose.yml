@@ -16,15 +16,16 @@ services:
     #restart: always
     volumes:
       - ./images/apple2js/json/disks:/usr/src/emulator/json/disks
+      - ./images/apple2js/disks:/usr/src/emulator/disks
       - type: bind
         source: ./images/apple2js/startup.sh
         target: /usr/src/emulator/startup.sh
-      - type: bind
-        source: ./images/apple2js/player-standalone/dos.dsk
-        target: /usr/src/emulator/dos.dsk
-      - type: bind
-        source: ./images/apple2js/disks/ugwp.dsk
-        target: /usr/src/emulator/ugwp.dsk
+      # - type: bind
+      #   source: ./images/apple2js/player-standalone/dos.dsk
+      #   target: /usr/src/emulator/dos.dsk
+      # - type: bind
+      #   source: ./images/apple2js/disks/ugwp.dsk
+      #   target: /usr/src/emulator/ugwp.dsk
       - type: bind
         source: ./images/apple2js/player-standalone/cyaniide.html
         target: /usr/src/emulator/cyaniide.html

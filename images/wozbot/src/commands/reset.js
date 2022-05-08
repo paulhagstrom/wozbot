@@ -12,7 +12,7 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const pages = await browser.pages();
 		const page = pages[0];
-		await page.goto('http://apple2js:8080/cyaniide.html?disk1=ugwp.dsk');
+		await page.goto('http://apple2js:8080/cyaniide.html?disk1=disks/ugwp.dsk');
 		// await page.goto('http://apple2js:8080/apple2js.html#ugwp');
 		await interaction.editReply('CHUNKA CHUNKA CHUNKA!');
 	},
