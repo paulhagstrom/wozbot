@@ -56,7 +56,8 @@ const minimal_args = [
 	console.log(`browser endpoint: ${browserWSEndpoint}`);
 	// start the emulator
 	const page = await browser.newPage();
-	await page.goto('http://apple2js:8080/apple2js.html#dos33master');
+	await page.goto('http://apple2js:8080/cyaniide.html?disk1=dos.dsk');
+	// await page.goto('http://apple2js:8080/apple2js.html#dos33master');
 	// go full screen
 	//await page.keyboard.down('Shift');
 	//await page.keyboard.press('F2');
