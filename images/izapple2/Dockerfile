@@ -3,7 +3,7 @@ FROM debian:bullseye-slim
 # install screen stuff
 
 RUN apt-get update -y
-RUN apt-get install -y xvfb xdotool x11vnc fluxbox libsdl2-2.0
+RUN apt-get install -y xvfb xdotool x11vnc fluxbox libsdl2-2.0 curl
 
 # download izapple2 prebuilt
 
