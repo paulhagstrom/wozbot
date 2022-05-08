@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-// Allow spawning so we can launch the xdotool to type
-const { execSync } = require('child_process');
+const { sendline, sendreturn } = require('../interface/type.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,32 +10,10 @@ module.exports = {
 		const line = interaction.options.getString('line');
     if (line) {
       await interaction.reply(`Type: ${line}`);
-			// type the line
-			execSync(`xdotool search --name Apple type --delay 100 ${line}`, (error, stdout, stderr) => {
-				if (error) {
-					console.log(`error: ${error.message}`);
-					return;
-				}
-				if (stderr) {
-					console.log(`stderr:${stderr}`);
-					return;
-				}
-				console.log(`stdout: ${stdout}`);
-			});
+			sendline(line);
     } else {
       await interaction.reply(`Hitting return.`);
     }
-		// hit return
-		execSync('xdotool search --name Apple key Return', (error, stdout, stderr) => {
-			if (error) {
-				console.log(`error: ${error.message}`);
-				return;
-			}
-			if (stderr) {
-				console.log(`stderr:${stderr}`);
-				return;
-			}
-			console.log(`stdout: ${stdout}`);
-		});
-},
+		sendreturn();
+	},
 };
