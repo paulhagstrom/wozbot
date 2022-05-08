@@ -2,10 +2,10 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
 
 // Allow spawning so we can launch the emulator in the container
-// const { exec } = require('child_process');
+const { execSync } = require('child_process');
 // const Keyv = require('keyv');
 const puppeteer = require('puppeteer');
-const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
+// const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
 const fs = require('fs');
 const wait = require('node:timers/promises').setTimeout;
 
@@ -23,6 +23,7 @@ module.exports = {
 		const browser = await puppeteer.connect({ browserWSEndpoint });
 		const pages = await browser.pages();
 		const page = pages[0];
+		/*
 		const Config = {
 			followNewTab: true,
 			fps: 25,
@@ -42,7 +43,15 @@ module.exports = {
 		await wait(1000);
 		await recorder.stop();
 		console.log('Recording stopped.');
+		*/
 		await page.screenshot({path:'/tmp/screen.png'});
+		// 8fps, 16 frames
+		for (let frame = 11; frame <= 26; frame++) {
+			await page.screenshot({path:`/tmp/screen${frame}.png`});
+			wait(125);
+		}
+		// use ffmpeg to make a looping gif
+		execSync('ffmpeg -framerate 8 -i /tmp/screen??.png -loop /tmp/screen.gif');
 		// await page.screenshot({
 		// 	path: 'screen.png'
 		// });
@@ -74,7 +83,8 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		*/
-		const attvid = new MessageAttachment('/tmp/screen.mp4');
+		// const attvid = new MessageAttachment('/tmp/screen.mp4');
+		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const attpng = new MessageAttachment('/tmp/screen.png');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Camera noise')
