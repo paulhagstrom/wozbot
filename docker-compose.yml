@@ -2,7 +2,7 @@ version: '3'
 services:
   wozbot:
     build: .
-    image: wozbot
+    image: wozbot:apple2js
     container_name: wozbot
     #restart: always
     ports:
