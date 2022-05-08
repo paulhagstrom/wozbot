@@ -20,7 +20,7 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 		// launch new one
-		execSync('/usr/src/emulator/izapple2 disks/uwgp.dsk &', (error, stdout, stderr) => {
+		execSync('/usr/src/emulator/izapple2sdl_linux disks/uwgp.dsk &', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
 			}
