@@ -38,7 +38,7 @@ module.exports = {
 			console.log(`stdout: ${stdout}`);
 		});
 
-		const attvid = new MessageAttachment('/tmp/screen_small.gif');
+		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Current screen')
 			.setImage('attachment://screen.gif');
