@@ -9,41 +9,29 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		await shootScreen();
-		const attvid = new MessageAttachment('/tmp/screenshot.jpg');
-		const replyEmbed = new MessageEmbed()
-			// .setTitle('Current screen')
-			.setImage('attachment://screenshot.jpg');
-		console.log('Reply is going out.');
-		await interaction.editReply({
-			embeds: [replyEmbed],
-			files: [attvid]
-		});
-		console.log('Reply has gone out.');
-		// wait five seconds and then resample the screen and replace the reply
-		wait(5000);
-		await shootScreen();
-		const attvid2 = new MessageAttachment('/tmp/screenshot.jpg');
-		const replyEmbed2 = new MessageEmbed()
-			// .setTitle('Current screen')
-			.setImage('attachment://screenshot.jpg');
-		console.log('Edit reply is going out.');
-		await interaction.editReply({
-			embeds: [replyEmbed2],
-			files: [attvid2]
-		});
-		console.log('Edit reply has gone out.');
-		// wait five seconds and then resample the screen and replace the reply
-		wait(5000);
+		// Take 4 screenshots 5 seconds apart
+		const screenshotInfo = {};
+		for (let i = 0; i < 5; i++) {
+			await shootScreen();
+			screenshotInfo.file = new MessageAttachment('/tmp/screenshot.jpg');
+			screenshotInfo.embed = new MessageEmbed()
+				.setImage('attachment://screenshot.jpg');
+			console.log('Reply is going out.');
+			await interaction.editReply({
+				embeds: [screenshotInfo.embed],
+				files: [screenshotInfo.file]
+			});
+			console.log('Reply has gone out.');
+			wait(5000);
+		}
 		await recordScreen();
-		const attvid3 = new MessageAttachment('/tmp/screen.gif');
-		const replyEmbed3 = new MessageEmbed()
-			// .setTitle('Current screen')
+		screenshotInfo.file = new MessageAttachment('/tmp/screen.gif');
+		screenshotInfo.embed = new MessageEmbed()
 			.setImage('attachment://screen.gif');
 		console.log('Edit reply is going out.');
 		await interaction.editReply({
-			embeds: [replyEmbed3],
-			files: [attvid3]
+			embeds: [screenshotInfo.embed],
+			files: [screenshotInfo.file]
 		});
 		console.log('Edit reply has gone out.');
 	},
