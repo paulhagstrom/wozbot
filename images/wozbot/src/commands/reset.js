@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { stopEmulator, startEmulator } = require('../interface/show.js');
+const { stopEmulator, startEmulator } = require('../interface/reset.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()

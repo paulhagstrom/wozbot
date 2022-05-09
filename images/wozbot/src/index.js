@@ -3,7 +3,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const { initEmulator } = require('./interface/reset.js');
 
-// launch the initEmulator
+// launch the emulator
 console.log('Calling for emulator launch.');
 initEmulator();
 console.log('Returning from emulator launch.');
