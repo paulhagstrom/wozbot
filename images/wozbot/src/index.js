@@ -4,8 +4,9 @@ const { token } = require('./config.json');
 const { startEmulator } = require('./interface/reset.js');
 
 // launch the emulator
-console.log('launching emulator.');
+console.log('Calling for emulator launch.');
 startEmulator();
+console.log('Returning from emulator launch.');
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
