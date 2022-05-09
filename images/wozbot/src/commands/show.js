@@ -33,5 +33,18 @@ module.exports = {
 			files: [attvid2]
 		});
 		console.log('Edit reply has gone out.');
+		// wait five seconds and then resample the screen and replace the reply
+		wait(5000);
+		await recordScreen();
+		const attvid3 = new MessageAttachment('/tmp/screen.gif');
+		const replyEmbed3 = new MessageEmbed()
+			// .setTitle('Current screen')
+			.setImage('attachment://screen.gif');
+		console.log('Edit reply is going out.');
+		await interaction.editReply({
+			embeds: [replyEmbed3],
+			files: [attvid3]
+		});
+		console.log('Edit reply has gone out.');
 	},
 };
