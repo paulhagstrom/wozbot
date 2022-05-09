@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		recordScreen();
+		await recordScreen();
 		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const replyEmbed = new MessageEmbed()
 			.setTitle('Current screen')
