@@ -1,9 +1,9 @@
-const { execSync } = require('child_process');
+const { exec } = require('child_process');
 // synchronous because I am old
 
 function stopEmulator() {
   console.log('Stopping emulator.');
-	execSync('pkill -f izapple2sdl_linux', (error, stdout, stderr) => {
+	exec('pkill -f izapple2sdl_linux', (error, stdout, stderr) => {
 		if (error) {
 			console.log(`error: ${error.message}`);
 		}
@@ -16,7 +16,7 @@ function stopEmulator() {
 
 function startEmulator() {
   console.log('Starting emulator.');
-	execSync('/usr/src/emulator/izapple2sdl_linux /usr/src/bot/disks/uwgp.dsk &', (error, stdout, stderr) => {
+	exec('/usr/src/emulator/izapple2sdl_linux /usr/src/bot/disks/uwgp.dsk &', (error, stdout, stderr) => {
 		if (error) {
 			console.log(`error: ${error.message}`);
 		}
