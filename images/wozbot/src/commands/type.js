@@ -10,10 +10,10 @@ module.exports = {
     const line = interaction.options.getString('line');
     if (line) {
       await interaction.reply(`Type! ${line}`);
-      sendLine(line);
+      await sendLine(line);
     } else {
       await interaction.reply(`Pressing Enter.`);
     }
-    sendReturn();
+    await sendReturn();
 	},
 };
