@@ -12,7 +12,7 @@ module.exports = {
       await interaction.reply(`Type! ${line}`);
       await sendLine(line);
     } else {
-      await interaction.reply(`Pressing Enter.`);
+      await interaction.reply(`Pressing Return.`);
     }
     await sendReturn();
 	},

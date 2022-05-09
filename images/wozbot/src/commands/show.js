@@ -11,7 +11,7 @@ module.exports = {
 		// Take 4 screenshots 1 second apart
 		// then make an animated gif
 		const screenshotInfo = {};
-		for (let i = 0; i < 5; i++) {
+		for (let i = 0; i < 1; i++) {
 			await shootScreen();
 			screenshotInfo.file = new MessageAttachment('/tmp/screenshot.jpg');
 			screenshotInfo.embed = new MessageEmbed()
