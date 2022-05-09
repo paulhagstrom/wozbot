@@ -1,7 +1,6 @@
 const { execSync } = require('child_process');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
 	async recordScreen() {
@@ -15,7 +14,7 @@ module.exports = {
 		console.log('Frame capture starting.');
 		for (let frame = 1; frame <= 10; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.jpg`});
-			wait(100);
+			await new Promise(resolve => setTimeout(resolve, 100));
 		}
 		console.log('Frames captured.');
 		// use ffmpeg to make a looping gif

@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
 const { recordScreen, shootScreen } = require('../interface/show.js');
-const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -22,7 +21,7 @@ module.exports = {
 				files: [screenshotInfo.file]
 			});
 			console.log('Reply has gone out.');
-			wait(5000);
+			await new Promise(resolve => setTimeout(resolve, 5000));
 		}
 		await recordScreen();
 		screenshotInfo.file = new MessageAttachment('/tmp/screen.gif');
