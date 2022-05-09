@@ -11,7 +11,7 @@ module.exports = {
 		await recordScreen();
 		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const replyEmbed = new MessageEmbed()
-			.setTitle('Current screen')
+			// .setTitle('Current screen')
 			.setImage('attachment://screen.gif');
 		console.log('Reply is going out.');
 		await interaction.editReply({
