@@ -8,7 +8,8 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		// Take 4 screenshots 5 seconds apart
+		// Take 4 screenshots 1 second apart
+		// then make an animated gif
 		const screenshotInfo = {};
 		for (let i = 0; i < 5; i++) {
 			await shootScreen();
@@ -21,7 +22,7 @@ module.exports = {
 				files: [screenshotInfo.file]
 			});
 			console.log('Reply has gone out.');
-			await new Promise(resolve => setTimeout(resolve, 5000));
+			await new Promise(resolve => setTimeout(resolve, 1000));
 		}
 		await recordScreen();
 		screenshotInfo.file = new MessageAttachment('/tmp/screen.gif');
