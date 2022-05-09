@@ -13,13 +13,13 @@ module.exports = {
 		console.log('pages retrieved');
 		const page = pages[0];
 		console.log('Frame capture starting.');
-		for (let frame = 1; frame <= 8; frame++) {
+		for (let frame = 1; frame <= 10; frame++) {
 			await page.screenshot({path:`/tmp/screen${frame}.jpg`});
-			wait(125);
+			wait(100);
 		}
 		console.log('Frames captured.');
 		// use ffmpeg to make a looping gif
-		execSync('ffmpeg -y -f image2 -framerate 8 -i /tmp/screen%d.jpg -loop 0 /tmp/screen.gif');
+		execSync('ffmpeg -y -f image2 -framerate 10 -i /tmp/screen%d.jpg -loop 0 /tmp/screen.gif');
 		console.log('Gif created.');
 	},
 };
