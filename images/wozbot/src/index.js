@@ -1,20 +1,11 @@
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
-const { exec } = require('child_process');
+const { startEmulator } = require('interface/reset.js');
 
 // launch the emulator
-console.log('launching izapple2.');
-exec('/usr/src/emulator/izapple2sdl_linux /usr/src/bot/disks/uwgp.dsk &', (error, stdout, stderr) => {
-			if (error) {
-				console.log(`error: ${error.message}`);
-			}
-			if (stderr) {
-				console.log(`stderr:${stderr}`);
-			}
-			console.log(`stdout: ${stdout}`);
-		});
-
+console.log('launching emulator.');
+startEmulator();
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
