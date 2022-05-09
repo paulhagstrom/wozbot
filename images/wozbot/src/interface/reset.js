@@ -2,8 +2,6 @@ const { execSync } = require('child_process');
 
 module.exports = {
 	async stopEmulator(interaction) {
-		await interaction.deferReply();
-		// kill old one
 		execSync('pkill -f izapple2sdl_linux', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
