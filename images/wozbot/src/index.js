@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
-const { startEmulator } = require('interface/reset.js');
+const { startEmulator } = require('./interface/reset.js');
 
 // launch the emulator
 console.log('launching emulator.');
