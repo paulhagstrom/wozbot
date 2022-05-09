@@ -22,4 +22,17 @@ module.exports = {
 		execSync('ffmpeg -y -f image2 -framerate 10 -i /tmp/screen%d.jpg -loop 0 /tmp/screen.gif');
 		console.log('Gif created.');
 	},
+	async shootScreen() {
+		const browserWSEndpoint = fs.readFileSync('/tmp/a2js-ws');
+		console.log(`show: retrieved browser endpoint: ${browserWSEndpoint}`);
+		const browser = await puppeteer.connect({ browserWSEndpoint });
+		console.log('connected');
+		const pages = await browser.pages();
+		console.log('pages retrieved');
+		const page = pages[0];
+		console.log('Frame capture starting.');
+		await page.screenshot({path:`/tmp/screenshot.jpg`});
+		console.log('Frame captured.');
+		console.log('Jpg created.');
+	},
 };

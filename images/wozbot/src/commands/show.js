@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
-const { recordScreen } = require('../interface/show.js');
+const { recordScreen, shootScreen } = require('../interface/show.js');
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		await recordScreen();
-		const attvid = new MessageAttachment('/tmp/screen.gif');
+		await shootScreen();
+		const attvid = new MessageAttachment('/tmp/screenshot.jpg');
 		const replyEmbed = new MessageEmbed()
 			// .setTitle('Current screen')
-			.setImage('attachment://screen.gif');
+			.setImage('attachment://screenshot.jpg');
 		console.log('Reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed],
@@ -22,11 +22,11 @@ module.exports = {
 		console.log('Reply has gone out.');
 		// wait five seconds and then resample the screen and replace the reply
 		wait(5000);
-		await recordScreen();
-		const attvid2 = new MessageAttachment('/tmp/screen.gif');
+		await shootScreen();
+		const attvid2 = new MessageAttachment('/tmp/screenshot.jpg');
 		const replyEmbed2 = new MessageEmbed()
 			// .setTitle('Current screen')
-			.setImage('attachment://screen.gif');
+			.setImage('attachment://screenshot.jpg');
 		console.log('Edit reply is going out.');
 		await interaction.editReply({
 			embeds: [replyEmbed2],
