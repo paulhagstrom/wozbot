@@ -1,7 +1,7 @@
 const { execSync } = require('child_process');
 
 module.exports = {
-	async recordscreen() {
+	async recordScreen() {
 		console.log('Running ffmpeg to record');
 		// record 1 second and send it out as a gif
 		execSync('ffmpeg -y -draw_mouse 0 -f x11grab -r 12 -video_size 1128x768 -i :1.0+13,68 -t 1 /tmp/screen.gif', (error, stdout, stderr) => {

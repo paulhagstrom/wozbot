@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment, MessageEmbed } = require('discord.js');
-const { recordscreen } = require('../interface/show.js');
+const { recordScreen } = require('../interface/show.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Show the screen!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		recordscreen();
+		recordScreen();
 
 		const attvid = new MessageAttachment('/tmp/screen.gif');
 		const replyEmbed = new MessageEmbed()

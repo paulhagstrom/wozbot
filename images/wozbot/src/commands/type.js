@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { sendline, sendreturn } = require('../interface/type.js');
+const { sendLine, sendReturn } = require('../interface/type.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,10 +10,10 @@ module.exports = {
 		const line = interaction.options.getString('line');
     if (line) {
       await interaction.reply(`Type: ${line}`);
-			sendline(line);
+			sendLine(line);
     } else {
       await interaction.reply(`Hitting return.`);
     }
-		sendreturn();
+		sendReturn();
 	},
 };

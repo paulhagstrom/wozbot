@@ -2,7 +2,7 @@
 const { execSync } = require('child_process');
 
 module.exports = {
-	async sendline(line) {
+	async sendLine(line) {
 			execSync(`xdotool search --name Apple type --delay 100 ${line}`, (error, stdout, stderr) => {
 				if (error) {
 					console.log(`error: ${error.message}`);
@@ -15,7 +15,7 @@ module.exports = {
 				console.log(`stdout: ${stdout}`);
 			});
     },
-  async sendreturn() {
+  async sendReturn() {
     execSync('xdotool search --name Apple key Return', (error, stdout, stderr) => {
 			if (error) {
 				console.log(`error: ${error.message}`);
