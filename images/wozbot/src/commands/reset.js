@@ -7,8 +7,8 @@ module.exports = {
 		.setDescription('(Re)boots the machine!'),
 	async execute(interaction) {
 		await interaction.deferReply();
-		stopEmulator();
-		startEmulator();
+		await stopEmulator();
+		await startEmulator();
 		await interaction.editReply('CHUNKA CHUNKA CHUNKA!');
 	},
 };
